@@ -12,7 +12,7 @@ public class CameraMgr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     public GameObject RTSCameraRig;
@@ -25,12 +25,13 @@ public class CameraMgr : MonoBehaviour
     public float cameraTurnRate = 10;
     public Vector3 currentYawEulerAngles = Vector3.zero;
     public Vector3 currentPitchEulerAngles = Vector3.zero;
+
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKey(KeyCode.W))
         {
-            YawNode.transform.Translate(Vector3.forward * Time.deltaTime * cameraMoveSpeed);
+          YawNode.transform.Translate(Vector3.forward * Time.deltaTime * cameraMoveSpeed);
         }
         if (Input.GetKey(KeyCode.S))
         {
@@ -44,43 +45,28 @@ public class CameraMgr : MonoBehaviour
         {
             YawNode.transform.Translate(Vector3.right * Time.deltaTime * cameraMoveSpeed);
         }
-        if (Input.GetKey(KeyCode.R))
+        YawNode.transform.position = new Vector3(YawNode.transform.position.x, RTSCameraRig.transform.position.y, YawNode.transform.position.z);
+
+        // Mouse Scroll Wheel handles the zoom
+        //RTSCameraRig.transform.position = new Vector3(RTSCameraRig.transform.position.x, RTSCameraRig.transform.position.y + Input.mouseScrollDelta.y, RTSCameraRig.transform.position.z);
+        //y += Input.mouseScrollDelta.y
+        /*
+        if(Input.mouseScrollDelta.y > 0)
         {
-            YawNode.transform.Translate(Vector3.up * Time.deltaTime * cameraMoveSpeed);
+          YawNode.transform.Translate(Vector3.forward * Time.deltaTime * cameraMoveSpeed);
         }
-        if (Input.GetKey(KeyCode.F))
+        if(Input.mouseScrollDelta.y < 0)
         {
-            YawNode.transform.Translate(Vector3.down * Time.deltaTime * cameraMoveSpeed);
+            YawNode.transform.Translate(Vector3.back * Time.deltaTime * cameraMoveSpeed);
         }
 
-        currentYawEulerAngles = YawNode.transform.localEulerAngles;
-        if (Input.GetKey(KeyCode.Q))
-        {
-            currentYawEulerAngles.y -= cameraTurnRate * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.E))
-        {
-            currentYawEulerAngles.y += cameraTurnRate * Time.deltaTime;
-        }
-        YawNode.transform.localEulerAngles = currentYawEulerAngles;
-
-        currentPitchEulerAngles = PitchNode.transform.localEulerAngles;
-        if (Input.GetKey(KeyCode.Z))
-        {
-            currentPitchEulerAngles.x -= cameraTurnRate * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.X))
-        {
-            currentPitchEulerAngles.x += cameraTurnRate * Time.deltaTime;
-        }
-        PitchNode.transform.localEulerAngles = currentPitchEulerAngles;
-
+        */
 
         if (Input.GetKeyUp(KeyCode.C))
         {
             if (isRTSMode)
             {
-                YawNode.transform.SetParent(SelectionMgr.inst.selectedEntity.cameraRig.transform);
+                YawNode.transform.SetParent(ControlMgr.inst.player_entity.cameraRig.transform);
                 YawNode.transform.localPosition = Vector3.zero;
                 YawNode.transform.localEulerAngles = Vector3.zero;
             }

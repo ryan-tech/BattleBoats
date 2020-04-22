@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// ControlMgr will control the player's ship
+
 public class ControlMgr : MonoBehaviour
 {
     public static ControlMgr inst;
@@ -15,33 +18,40 @@ public class ControlMgr : MonoBehaviour
 
     }
 
-    public float deltaSpeed = 1;
-    public float deltaHeading = 2;
+    public Entity381 player_entity;
+    public Camera c;
+    public RaycastHit hit;
 
     // Update is called once per frame
     void Update()
     {
-      if(SelectionMgr.inst.selectedEntity)
+
+      player_entity.desiredSpeed = Utils.Clamp(player_entity.desiredSpeed, player_entity.minSpeed, player_entity.maxSpeed);
+      player_entity.desiredHeading = Utils.Degrees360(player_entity.desiredHeading);
+
+      if (Input.GetMouseButtonDown(1))
       {
-        if (Input.GetKeyUp(KeyCode.UpArrow))
-            SelectionMgr.inst.selectedEntity.desiredSpeed += deltaSpeed;
-        if (Input.GetKeyUp(KeyCode.DownArrow))
-            SelectionMgr.inst.selectedEntity.desiredSpeed -= deltaSpeed;
-
-        SelectionMgr.inst.selectedEntity.desiredSpeed =
-            Utils.Clamp(SelectionMgr.inst.selectedEntity.desiredSpeed, SelectionMgr.inst.selectedEntity.minSpeed, SelectionMgr.inst.selectedEntity.maxSpeed);
-
-        if (Input.GetKeyUp(KeyCode.LeftArrow))
-            SelectionMgr.inst.selectedEntity.desiredHeading -= deltaHeading;
-        if (Input.GetKeyUp(KeyCode.RightArrow))
-            SelectionMgr.inst.selectedEntity.desiredHeading += deltaHeading;
-
-        SelectionMgr.inst.selectedEntity.desiredHeading = Utils.Degrees360(SelectionMgr.inst.selectedEntity.desiredHeading);
-
-        if (Input.GetKey(KeyCode.Escape))
+        //Debug.Log("Control read a right click");
+        if (Physics.Raycast(c.ScreenPointToRay(Input.mousePosition), out hit))
         {
-            Application.Quit();
+          //Debug.Log("Ray was cast");
+          Vector3 pos = hit.point;
+          pos.y = 0;
+
+          Move m = new Move(player_entity, pos);
+          player_entity.SetCommand(m);
+
+          //Debug.DrawRay(player_entity.transform.position, hit.point, Color.green, 2);
         }
+        else
+        {
+          //Debug.Log("Wtf");
+        }
+      }
+
+      if (Input.GetKey(KeyCode.Escape))
+      {
+          Application.Quit();
       }
     }
 }

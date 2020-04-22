@@ -28,13 +28,14 @@ public class Move : Command
   public override void Tick(float dt)
   {
     Vector3 diff = targetPosition - ent.position;
+
   	ent.desiredHeading = Utils.Degrees360((float)(Math.Atan2(diff.x, diff.z) * (180/Math.PI)));
-    Debug.Log(ent.desiredHeading);
+    //Debug.Log(ent.desiredHeading);
     Debug.DrawLine(ent.position, targetPosition);
   	//Calculate velocity
   	ent.desiredSpeed = ent.maxSpeed;
-
-  	if(Vector3.Distance(targetPosition, ent.position) < 100)
+    Debug.Log(ent.desiredSpeed);
+  	if(Vector3.Distance(targetPosition, ent.position) < 25)
     {
   		isDone = true;
   	}

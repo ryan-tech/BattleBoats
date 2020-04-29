@@ -59,9 +59,11 @@
      <Compile Include="Assets\CannonMgr.cs" />
      <Compile Include="Assets\Command.cs" />
      <Compile Include="Assets\ControlMgr.cs" />
+     <Compile Include="Assets\EnemyMgr.cs" />
      <Compile Include="Assets\Entity381.cs" />
      <Compile Include="Assets\EntityMgr.cs" />
      <Compile Include="Assets\Follow.cs" />
+     <Compile Include="Assets\GameMgr.cs" />
      <Compile Include="Assets\Intercept.cs" />
      <Compile Include="Assets\main.cs" />
      <Compile Include="Assets\Move.cs" />

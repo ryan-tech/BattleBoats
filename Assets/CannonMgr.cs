@@ -20,12 +20,20 @@ public class CannonMgr : MonoBehaviour
 
     public List<Cannon> cannons;
     public int power;
+    public AudioSource shot;
 
     // Update is called once per frame
     void Update()
     {
+
       if(Input.GetKeyUp(KeyCode.F))
       {
+        if(shot)
+        {
+          shot.Play();
+        }
+
+
         foreach(Cannon c in cannons)
         {
           c.Fire(power);
@@ -33,10 +41,4 @@ public class CannonMgr : MonoBehaviour
       }
     }
 
-    /*
-    bool custom_wait(int milis)
-    {
-      Time.deltaTime;
-    }
-    */
 }

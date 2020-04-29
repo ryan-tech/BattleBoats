@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class Move : Command
 {
-  public Move(Entity381 e, Vector3 pos) : base(e)
+  public Move(Entity381 e, Vector3 pos, float d) : base(e)
   {
     ent = e;
     targetPosition = pos;
+    deltaDistance = d;
   }
   public override void Init(){
     Debug.Log("Entity is moving");
@@ -22,6 +23,7 @@ public class Move : Command
   public override void Stop()
   {
     ent.desiredSpeed = 0;
+    ent.speed = 0;
 
   }
 
@@ -34,8 +36,8 @@ public class Move : Command
     Debug.DrawLine(ent.position, targetPosition);
   	//Calculate velocity
   	ent.desiredSpeed = ent.maxSpeed;
-    Debug.Log(ent.desiredSpeed);
-  	if(Vector3.Distance(targetPosition, ent.position) < 25)
+    //Debug.Log(ent.desiredSpeed);
+  	if(Vector3.Distance(targetPosition, ent.position) < deltaDistance)
     {
   		isDone = true;
   	}
@@ -47,4 +49,5 @@ public class Move : Command
 
   public Entity381 ent;
   public Vector3 targetPosition;
+  public float deltaDistance;
 }

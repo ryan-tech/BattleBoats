@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -235,9 +235,11 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Instructions:
 
-    - Player controls through mouse selection
+    - Right Click to Move
 
-    - Keyboard for controlling cannons
+    - WASD controls the camera
+
+    - F to fire
 
     - Destroy enemy ships
 
@@ -315,12 +317,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 544796107}
-    characterCount: 195
+    characterCount: 179
     spriteCount: 0
-    spaceCount: 32
-    wordCount: 32
+    spaceCount: 35
+    wordCount: 35
     linkCount: 0
-    lineCount: 8
+    lineCount: 9
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -629,7 +631,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: BattleBoats Battle
+          m_StringArgument: Gameplay
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1295015983

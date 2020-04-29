@@ -38,7 +38,7 @@ public class ControlMgr : MonoBehaviour
           Vector3 pos = hit.point;
           pos.y = 0;
 
-          Move m = new Move(player_entity, pos);
+          Move m = new Move(player_entity, pos, 10);
           player_entity.SetCommand(m);
 
           //Debug.DrawRay(player_entity.transform.position, hit.point, Color.green, 2);

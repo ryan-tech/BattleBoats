@@ -50,17 +50,19 @@ public class CameraMgr : MonoBehaviour
         // Mouse Scroll Wheel handles the zoom
         //RTSCameraRig.transform.position = new Vector3(RTSCameraRig.transform.position.x, RTSCameraRig.transform.position.y + Input.mouseScrollDelta.y, RTSCameraRig.transform.position.z);
         //y += Input.mouseScrollDelta.y
-        /*
-        if(Input.mouseScrollDelta.y > 0)
+
+        if(Input.GetKey(KeyCode.Q))
         {
-          YawNode.transform.Translate(Vector3.forward * Time.deltaTime * cameraMoveSpeed);
+          RTSCameraRig.transform.Translate(Vector3.down * Time.deltaTime * cameraMoveSpeed, Space.World);
+
         }
-        if(Input.mouseScrollDelta.y < 0)
+        if(Input.GetKey(KeyCode.E))
         {
-            YawNode.transform.Translate(Vector3.back * Time.deltaTime * cameraMoveSpeed);
+          RTSCameraRig.transform.Translate(Vector3.up * Time.deltaTime * cameraMoveSpeed, Space.World);
+          //YawNode.transform.Translate(Vector3.down * Time.deltaTime * cameraMoveSpeed);
         }
 
-        */
+
 
         if (Input.GetKeyUp(KeyCode.C))
         {

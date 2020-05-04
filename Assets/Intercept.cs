@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class Intercept : Command
 {
-  public Intercept(Entity381 src, Entity381 dst) : base(src)
+  public Intercept(Entity381 src, Entity381 dst, int d) : base(src)
   {
     source = src;
     destination = dst;
+    distance = d;
   }
 
   public override void Init(){
@@ -40,7 +41,7 @@ public class Intercept : Command
   	//Calculate velocity
   	source.desiredSpeed = source.maxSpeed;
 
-  	if(dist < 50)
+  	if(dist < distance)
   		isDone = true;
   	else
   		isDone = false;
@@ -48,5 +49,6 @@ public class Intercept : Command
 
   public Entity381 source;
   public Entity381 destination;
+  public int distance;
 
 }

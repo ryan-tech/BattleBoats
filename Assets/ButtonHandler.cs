@@ -14,9 +14,64 @@ public class ButtonHandler : MonoBehaviour
     public void ResetGame()
     {
       GameMgr.inst.game_over_screen.SetActive(false);
-      GameMgr.inst.gold_earned = 0;
-      Text txt = GameMgr.inst.gold_ui.GetComponent<Text>();
-      txt.text = GameMgr.inst.gold_earned.ToString();
-      GameMgr.inst.upgrade_menu.transform.Find("treasure_val").GetComponent<Text>().text = GameMgr.inst.gold_earned.ToString();
+      GameMgr.inst.treasure_count = 0;
     }
+
+    public void IncreaseSpeed()
+    {
+      if(GameMgr.inst.treasure_count > 0 && GameMgr.inst.player_ent.maxSpeed < 100)
+      {
+        //Decrease treasure, increase speed
+        GameMgr.inst.treasure_count -= 1;
+        GameMgr.inst.player_ent.maxSpeed += GameMgr.inst.delta_ship_speed;
+        GameMgr.inst.player_ent.acceleration += GameMgr.inst.delta_ship_speed;
+      }
+      else if(GameMgr.inst.player_ent.maxSpeed >= 100)
+      {
+        GameMgr.inst.player_ent.maxSpeed = 100;
+      }
+    }
+
+    public void IncreaseHealth()
+    {
+      if(GameMgr.inst.treasure_count > 0 && GameMgr.inst.player_ent.maxHealth < 10)
+      {
+        //Decrease treasure, increase health
+        GameMgr.inst.treasure_count -= 1;
+        GameMgr.inst.player_ent.maxHealth += GameMgr.inst.delta_ship_health;
+      }
+      else if(GameMgr.inst.player_ent.maxHealth >= 10)
+      {
+        GameMgr.inst.player_ent.maxHealth = 10;
+      }
+    }
+
+    public void IncreaseCannonDmg()
+    {
+      //max damage = 5
+      if(GameMgr.inst.treasure_count > 0 && GameMgr.inst.player_ent.cannonDmg < 5)
+      {
+        GameMgr.inst.treasure_count -= 1;
+        GameMgr.inst.player_ent.cannonDmg += GameMgr.inst.delta_cannon_dmg;
+      }
+      else if(GameMgr.inst.player_ent.cannonDmg >= 5)
+      {
+        GameMgr.inst.player_ent.cannonDmg = 5;
+      }
+    }
+
+    public void IncreaseCannonRange()
+    {
+      //max damage = 5
+      if(GameMgr.inst.treasure_count > 0 && GameMgr.inst.player_ent.cannonRange < 50)
+      {
+        GameMgr.inst.treasure_count -= 1;
+        GameMgr.inst.player_ent.cannonRange += GameMgr.inst.delta_cannon_range;
+      }
+      else if(GameMgr.inst.player_ent.cannonRange >= 50)
+      {
+        GameMgr.inst.player_ent.cannonRange = 50;
+      }
+    }
+
 }

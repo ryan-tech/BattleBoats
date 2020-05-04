@@ -10,10 +10,6 @@ public class SplashOrder : MonoBehaviour
 
     void Start()
     {
-        if (scenenum == 0) {
-            StartCoroutine(ToProductionTeamSplash());
-        }
-
         if (scenenum == 1){
             StartCoroutine(ToTitleScene());
         }
@@ -24,11 +20,11 @@ public class SplashOrder : MonoBehaviour
 
     }
 
-    IEnumerator ToProductionTeamSplash () {
-        yield return new WaitForSeconds(4);
-        scenenum = 1;
-        SceneManager.LoadScene(1);
-    }
+    // IEnumerator ToProductionTeamSplash () {
+    //     yield return new WaitForSeconds(4);
+    //     scenenum = 1;
+    //     SceneManager.LoadScene(1);
+    // }
 
     IEnumerator ToTitleScene () {
         yield return new WaitForSeconds(2);

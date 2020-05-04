@@ -18,6 +18,13 @@ public class Entity381 : MonoBehaviour
     public float maxSpeed;
     public float minSpeed;
 
+    public int currentHealth;
+    public int maxHealth;
+    public int cannonDmg;
+    public int cannonRange;
+
+    public bool dead;
+
     public GameObject cameraRig;
 
     public GameObject selectionCircle;
@@ -25,24 +32,25 @@ public class Entity381 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+      currentHealth = maxHealth;
+      dead = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        selectionCircle.SetActive(isSelected);
-        if(commands.Count != 0){
-        		// Run oldest command
-        		Command runCommand = commands[0];
-        		runCommand.Tick(Time.deltaTime);
+      selectionCircle.SetActive(isSelected);
+      if(commands.Count != 0){
+      		// Run oldest command
+      		Command runCommand = commands[0];
+      		runCommand.Tick(Time.deltaTime);
 
-        		// Delete command after done
-        		if(runCommand.IsDone()){
-        			runCommand.Stop();
-        			commands.RemoveAt(0);
-        		}
-        	}
+      		// Delete command after done
+      		if(runCommand.IsDone()){
+      			runCommand.Stop();
+      			commands.RemoveAt(0);
+      		}
+      	}
     }
 
 

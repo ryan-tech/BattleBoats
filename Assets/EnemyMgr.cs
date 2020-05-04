@@ -15,8 +15,8 @@ public class EnemyMgr : MonoBehaviour
 
     public List<GameObject> enemies;
     public int num_enemies;
-    public int min_spawn_radius = -100;
-    public int max_spawn_radius = 100;
+    public int min_spawn_radius;
+    public int max_spawn_radius;
 
     // Start is called before the first frame update
     void Start()
@@ -38,8 +38,17 @@ public class EnemyMgr : MonoBehaviour
       foreach(GameObject e in enemies)
       {
         Entity381 enemy_entity = e.GetComponent<Entity381>();
-        Move m = new Move(enemy_entity, ControlMgr.inst.player_entity.position, 50);
-        enemy_entity.SetCommand(m);
+        if( Vector3.Distance(enemy_entity.position, ControlMgr.inst.player_entity.position) > 50)
+        {
+
+          Intercept m = new Intercept(enemy_entity, ControlMgr.inst.player_entity.position, 50);
+          enemy_entity.SetCommand(m);
+        }
+        else
+        {
+
+        }
+
       }
     }
 }

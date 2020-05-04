@@ -4,41 +4,40 @@ using UnityEngine;
 
 public class CannonMgr : MonoBehaviour
 {
-    public static CannonMgr inst;
-    private void Awake()
+  public static CannonMgr inst;
+  private void Awake()
+  {
+      inst = this;
+  }
+  // Start is called before the first frame update
+  void Start()
+  {
+    foreach(Cannon c in cannons)
     {
-        inst = this;
+      c.cannonBall.SetActive(false);
     }
-    // Start is called before the first frame update
-    void Start()
+  }
+
+  public List<Cannon> cannons;
+  public int power;
+  public AudioSource shot;
+  public bool isPlayer;
+
+  // Update is called once per frame
+  void Update()
+  {
+
+    if(Input.GetKeyDown(KeyCode.F) && isPlayer)
     {
+      if(shot)
+      {
+        shot.Play();
+      }
       foreach(Cannon c in cannons)
       {
-        c.cannonBall.SetActive(false);
+        c.Fire(power);
       }
     }
-
-    public List<Cannon> cannons;
-    public int power;
-    public AudioSource shot;
-
-    // Update is called once per frame
-    void Update()
-    {
-
-      if(Input.GetKeyUp(KeyCode.F))
-      {
-        if(shot)
-        {
-          shot.Play();
-        }
-
-
-        foreach(Cannon c in cannons)
-        {
-          c.Fire(power);
-        }
-      }
-    }
+  }
 
 }

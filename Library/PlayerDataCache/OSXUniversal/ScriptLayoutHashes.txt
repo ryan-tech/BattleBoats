@@ -2,9 +2,9 @@ OSXUniversal
 PlayerPath?
 /Users/ryan/Documents/Unity Projects/mac build.app
 SceneListBegin?
-Assets/Scenes/(FirstScene)MadeByScene.unity
-Assets/Scenes/ProductionTeamSplash.unity
 Assets/Scenes/TitleScene.unity
+Assets/Scenes/ProductionTeamSplash.unity
+Assets/Scenes/MadeBy.unity
 Assets/Scenes/InstructionScene.unity
 Assets/Scenes/Gameplay.unity
 SceneListEnd?
@@ -127,6 +127,8 @@ dd7520b7d4e690e8c593273e7b9fbe80 Assembly-CSharp.dll:TMPro.Examples.TMP_TextEven
 b8a5e8091ab0b8861d2add371082c5e0 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 08ee418b801850b56a351565b9c8bb78 Assembly-CSharp.dll:TMPro.TMP_TextEventHandler
 47930f3b40e24ef5b3b5e3d9ada7097a Assembly-CSharp.dll:TMPro.Examples.Benchmark01
+7d82d942af9624cb74cafa3e87abcd27 Assembly-CSharp.dll:.EnemyMgr
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ProjectilePhysics
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.SplashOrder
 7ae1127e97b6249e73f3f552b8d3f1d3 Assembly-CSharp.dll:.Physics_and_Input
@@ -157,6 +159,7 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 5887ef1bc706b22b773d253fd443ceef UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 5eb59968ab5bef355aaa2533bc0c7d71 Assembly-CSharp.dll:.EntityMgr
 97a580c59cad3623a01bbf5fb2d7fa93 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Water.SpecularLighting
+1270f8250000af7b28e61e402c59f7ba Assembly-CSharp.dll:.Cannon
 11319334e5365797f8056694f9b5dae4 Assembly-CSharp.dll:TMPro.Examples.ObjectSpin
 c239250f2f7641ce897064c7bd4173b0 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Water.Water
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:TMPro.TMP_DigitValidator
@@ -184,6 +187,7 @@ fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 bd3f0ca738703903e759f77536ed74fd Assembly-CSharp.dll:TMPro.Examples.TMP_FrameRateCounter
 a1ca1237bad0f30ea5ba8f4060929114 Assembly-CSharp.dll:TMPro.Examples.TMP_TextSelector_B
 3b760e6526e13f7504f59e210145899a Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
+68783118948c1371d9907e7aeb890a97 Assembly-CSharp.dll:.CannonMgr
 507174d46dacbc5fe45e28485db5dd1e Unity.Analytics.DataPrivacy.dll:UnityEngine.Analytics.DataPrivacyButton
 27e5341178f188b89bdc6495710b590c Assembly-CSharp.dll:TMPro.Examples.Benchmark01_UGUI
 8a874a8207a7664bdf44e61f28717254 Assembly-CSharp.dll:TMPro.Examples.SkewTextExample
@@ -206,7 +210,6 @@ df434544c9f7b33d1cc7e635b180d279 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 0784d4fd5b93bd75440d01eb2fac4233 Assembly-CSharp.dll:TMPro.Examples.VertexShakeA
 8b1fe5dfdcf943fb3b72506b9f19335f Assembly-CSharp.dll:.EnvMapAnimator
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
+c5574841dff9f5e8585c056b8f3a6568 Assembly-CSharp.dll:.GameMgr
 9f6365112e07e4d25c0c7814c4acf1a6 Assembly-CSharp.dll:.Entity381
-f325fe3998ff39fe3bcd4f0c0bd3e944 Assembly-CSharp.dll:.Cannon
-63db73fb1575b9976853fe0de6e18d14 Assembly-CSharp.dll:.CannonMgr
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ProjectilePhysics
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ButtonHandler

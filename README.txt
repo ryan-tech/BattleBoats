@@ -1,5 +1,4 @@
 BattleBoats
-Group: Ryan Kim, Ivan Samuel
 Class: CS381
 
 Running Instructions:
